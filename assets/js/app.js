@@ -15,7 +15,8 @@ var height = svgHeight - margin.top - margin.bottom;
 var svg = d3.select("#scatter")
   .append("svg")
   .attr("height", svgHeight)
-  .attr("width", svgWidth);
+  .attr("width", svgWidth)
+  .attr("class", "chart");
 
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -28,8 +29,8 @@ var chosenYAxis = "healthcare";
 function xScale(healthData, chosenXAxis) {
   // create scales
   var xLinearScale = d3.scaleLinear()
-    .domain([d3.min(healthData, d => d[chosenXAxis]) * 0.8,
-    d3.max(healthData, d => d[chosenXAxis]) * 1.2])
+    .domain([d3.min(healthData, d => d[chosenXAxis]) * 0.9,
+    d3.max(healthData, d => d[chosenXAxis]) * 1.1])
     .range([0, width]);
 
   return xLinearScale;
@@ -117,22 +118,32 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
   var toolTip = d3.tip()
     .attr("class", "d3-tip")
-    .offset([40, -45])
+    // .offset([40, -60])
     .html(function(d) {
-      // return (`${d.state}<br>${d[chosenXAxis]}<br>${d[chosenYAxis]}`);
-      return (`${d.state}<br>${label1}: ${d[chosenXAxis]}
-      <br>${label2}: ${d[chosenYAxis]}`)
+      if (chosenXAxis === "poverty") {
+        return (`${d.state}<br>${label1}: ${d[chosenXAxis]}%<br>${label2}: ${d[chosenYAxis]}%`);
+      }
+      else{
+        return (`${d.state}<br>${label1}: ${parseFloat(d[chosenXAxis]).toLocaleString("en")}
+        <br>${label2}: ${d[chosenYAxis]}%`)
+      }
     });
 
   circlesGroup.call(toolTip);
 
   // on mouseout event
   circlesGroup.on("mouseover", function(data) {
-    toolTip.show(data);
+    // show the tooltip
+    toolTip.show(data, this);
+    // highlight the state's circle's border
+    d3.select(this).style("stroke", "#323232")
   })
     // on mouseout event
     .on("mouseout", function(data, index) {
+      // remove the tooltip
       toolTip.hide(data);
+      // remove the highlight
+      d3.select(this).style("stroke", "#e3e3e3")
     });
 
   return circlesGroup;
