@@ -14,11 +14,11 @@ Animated Scatter Plot
 * The scatter plot can be filtered by selected the x-axis and y-axis labels using a mouse click event.
 x-axis contains the scale for three demographics (Poverty, Age and Household income) and
 the y-axis contains three health risk factors (Obesity, Smoking and lacking healthcare).
-The scatter plot is rendered for the selected labels (highlighed in black). Inactive labels willl be displayed in grey color.
+The scatter plot is rendered for the selected labels (highlighed in black). Inactive labels are displayed in grey color.
 
 * Each state is represented by a circle in the scatter plot. State abbreviations are marked inside the circle.
 
-* The chart has animated transitions for circle locations and range of axes.
+* The chart has animated transitions for circle locations and for the range of axes.
 
-* d3-tooltip has been incorated to display the label values for the axes on mouse hover.
+* d3-tooltip has been incorated to display the label values for the axes when the user hovers their cursor over the state circles.
 
