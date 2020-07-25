@@ -6,7 +6,7 @@ https://aastha-arora.github.io/D3-challenge/
 
 ### Dataset
 Datset used for the visualizations is based on 2014 ACS 1-year estimates: [Government Census Data](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml)
-and includes data on rates of income, obesity, poverty, etc. by state.
+- includes data on rates of income, obesity, poverty, etc. by state.
 
 ### Visualization
 Animated Scatter Plot
