@@ -8,7 +8,7 @@ https://aastha-arora.github.io/D3-challenge/
 Datset used for the visualizations is based on 2014 ACS 1-year estimates (data on rates of income, obesity, poverty, etc. by state): [Government Census Data.](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml)
 
 ### Visualization
-Animated Scatter Plot
+Animated Scatter Plot was created with the following features
 
 * The scatter plot can be filtered by selected the x-axis and y-axis labels using a mouse click event.
 x-axis contains the scale for three demographics (Poverty, Age and Household income) and
